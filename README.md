@@ -1,4 +1,4 @@
-# WiFi Password Tester
+# WiFi NetHunter
 
 A powerful Python-based WiFi network scanner and password testing tool for educational and authorized testing purposes. Features a hacker-style terminal interface with comprehensive network intelligence.
 
@@ -197,12 +197,12 @@ All cracked passwords are automatically saved with:
 
 ### Hacker-Style Interface
 ```
-╦ ╦╦╔═╗╦  ╔═╗╦═╗╔═╗╔═╗╦╔═╔═╗╦═╗
-║║║║╠╣ ║  ║  ╠╦╝╠═╣║  ╠╩╗║╣ ╠╦╝
-╚╩╝╩╚  ╩  ╚═╝╩╚═╩ ╩╚═╝╩ ╩╚═╝╩╚═
+╦ ╦╦╔═╗╦  ╔╗╔╔═╗╔╦╗╦ ╦╦ ╦╔╗╔╔╦╗╔═╗╦═╗
+║║║║╠╣ ║  ║║║║╣  ║ ╠═╣║ ║║║║ ║ ║╣ ╠╦╝
+╚╩╝╩╚  ╩  ╝╚╝╚═╝ ╩ ╩ ╩╚═╝╝╚╝ ╩ ╚═╝╩╚═
 
-[!] WiFi Penetration Testing Tool v1.0
-[!] Author: gurr-ial
+[!] WiFi NetHunter v1.0
+[!] Author: gurr-i
 ```
 
 ### Color-Coded Output
@@ -260,7 +260,7 @@ iwconfig
 
 ## 👨‍💻 Author
 
-**gurr-ial**
+**gurr-i**
 
 ## 📄 Legal Notice
 
