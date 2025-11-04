@@ -53,6 +53,22 @@ def mask_password(password, visible_chars=3):
     return password
 
 
+def check_if_cracked(ssid):
+    """Check if network is already in cracked.json."""
+    try:
+        cracked_file = Path("cracked.json")
+        if cracked_file.exists():
+            with open(cracked_file, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            
+            for net in data.get("cracked_networks", []):
+                if net["ssid"] == ssid:
+                    return net
+        return None
+    except:
+        return None
+
+
 def save_cracked_password(ssid, password, signal, auth_type, elapsed_time, attempts):
     """Save cracked password to cracked.json file."""
     try:
@@ -100,7 +116,7 @@ def save_cracked_password(ssid, password, signal, auth_type, elapsed_time, attem
 def print_banner():
     """Print application banner with hacker aesthetic."""
     banner = f"""
-{Colors.CYAN}{Colors.BOLD}
+{Colors.GREEN}{Colors.BOLD}
 ╦ ╦╦╔═╗╦  ╔═╗╦═╗╔═╗╔═╗╦╔═╔═╗╦═╗
 ║║║║╠╣ ║  ║  ╠╦╝╠═╣║  ╠╩╗║╣ ╠╦╝
 ╚╩╝╩╚  ╩  ╚═╝╩╚═╩ ╩╚═╝╩ ╩╚═╝╩╚═

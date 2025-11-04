@@ -34,7 +34,7 @@ def attack_single_network(iface, network, passwords):
             elapsed = time.time() - start_time
             print(f" {Colors.GREEN}[✓ SUCCESS]{Colors.RESET}")
             print(f"\n{Colors.GREEN}{'═' * 68}{Colors.RESET}")
-            print(f"{Colors.BOLD}{Colors.GREEN}[✓] PASSWORD CRACKED!{Colors.RESET}")
+            print(f"{Colors.BOLD}{Colors.GREEN}✅ PASSWORD CRACKED!{Colors.RESET}")
             print(f"{Colors.GREEN}{'═' * 68}{Colors.RESET}")
             print(f"{Colors.WHITE}[*] Target:{Colors.RESET} {Colors.YELLOW}{ssid_display}{Colors.RESET}")
             print(f"{Colors.WHITE}[*] Password:{Colors.RESET} {Colors.GREEN}{pw}{Colors.RESET}")
@@ -50,7 +50,7 @@ def attack_single_network(iface, network, passwords):
 
     elapsed = time.time() - start_time
     print(f"\n{Colors.RED}{'═' * 68}{Colors.RESET}")
-    print(f"{Colors.BOLD}{Colors.RED}[✗] ATTACK FAILED{Colors.RESET}")
+    print(f"{Colors.BOLD}{Colors.RED}❌ ATTACK FAILED{Colors.RESET}")
     print(f"{Colors.RED}{'═' * 68}{Colors.RESET}")
     print(f"{Colors.WHITE}[*] No matching password found{Colors.RESET}")
     print(f"{Colors.WHITE}[*] Tested:{Colors.RESET} {Colors.CYAN}{len(passwords)}{Colors.WHITE} passwords{Colors.RESET}")

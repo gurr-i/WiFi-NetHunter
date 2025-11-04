@@ -39,4 +39,5 @@ Thumbs.db
 # Project specific
 data/passwords.txt
 cracked.json
+network_history.json
 *.log
