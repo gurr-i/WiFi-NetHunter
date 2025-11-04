@@ -158,13 +158,15 @@ def get_password_source():
         # Fallback to hardcoded list if file doesn't exist
         print(f"{Colors.YELLOW}[!] Warning: data/passwords.txt not found, using built-in list{Colors.RESET}")
         passwords = [
-            "password123",
-            "admin",
-            "guest1234",
             "1234567890",
-            "12345678",
             "123456789",
+            "12345678",
             "987654321",
+            "admin123",
+            "password123",
+            "guest1234",
+            "9876543210",
+            "00000000",
         ]
         print(f"{Colors.GREEN}✅ Loaded {Colors.CYAN}{len(passwords)}{Colors.GREEN} passwords from built-in list{Colors.RESET}")
         return passwords
