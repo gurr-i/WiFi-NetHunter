@@ -117,13 +117,13 @@ def print_banner():
     """Print application banner with hacker aesthetic."""
     banner = f"""
 {Colors.GREEN}{Colors.BOLD}
-╦ ╦╦╔═╗╦  ╔═╗╦═╗╔═╗╔═╗╦╔═╔═╗╦═╗
-║║║║╠╣ ║  ║  ╠╦╝╠═╣║  ╠╩╗║╣ ╠╦╝
-╚╩╝╩╚  ╩  ╚═╝╩╚═╩ ╩╚═╝╩ ╩╚═╝╩╚═
+╦ ╦╦╔═╗╦  ╔╗╔╔═╗╔╦╗╦ ╦╦ ╦╔╗╔╔╦╗╔═╗╦═╗
+║║║║╠╣ ║  ║║║║╣  ║ ╠═╣║ ║║║║ ║ ║╣ ╠╦╝
+╚╩╝╩╚  ╩  ╝╚╝╚═╝ ╩ ╩ ╩╚═╝╝╚╝ ╩ ╚═╝╩╚═
 {Colors.RESET}
 {Colors.RED}[{Colors.YELLOW}!{Colors.RED}] {Colors.WHITE}WiFi Penetration Testing Tool v1.0{Colors.RESET}
 {Colors.RED}[{Colors.YELLOW}!{Colors.RED}] {Colors.WHITE}Educational & Authorized Testing Only{Colors.RESET}
-{Colors.RED}[{Colors.YELLOW}!{Colors.RED}] {Colors.WHITE}Author: {Colors.CYAN}gurr-i{Colors.RESET}
+{Colors.RED}[{Colors.YELLOW}!{Colors.RED}] {Colors.WHITE}Author: {Colors.CYAN}gurr-ial{Colors.RESET}
 {Colors.RED}{'─' * 68}{Colors.RESET}
 
 {Colors.YELLOW}⚠️  WARNING:{Colors.RESET} {Colors.WHITE}Unauthorized access is illegal!{Colors.RESET}
