@@ -4,6 +4,7 @@ import sys
 import time
 from .scanner import scan_networks, select_network, get_network_details
 from .connector import try_password
+from .wps_attack import wps_attack, show_wps_info
 from .utils import (
     print_banner,
     get_password_source,
@@ -105,10 +106,34 @@ def main():
         if mode == 'single':
             # Select target network
             network = select_network(networks)
+            details = get_network_details(network)
             ssid_display = get_ssid_display(network)
             print(f"\n{Colors.CYAN}{'─' * 68}{Colors.RESET}")
             print(f"{Colors.GREEN}[✓] Target:{Colors.RESET} {Colors.YELLOW}{ssid_display}{Colors.RESET}")
             print(f"{Colors.CYAN}{'─' * 68}{Colors.RESET}")
+
+            # Check if WPS is available
+            if details['wps_enabled'] and not details['wps_locked']:
+                print(f"\n{Colors.YELLOW}[!] WPS detected on this network!{Colors.RESET}")
+                print(f"{Colors.CYAN}{'─' * 68}{Colors.RESET}")
+                print(f"{Colors.WHITE}Attack options:{Colors.RESET}")
+                print(f"{Colors.GREEN}[1]{Colors.RESET} {Colors.WHITE}► WPS PIN Attack (Faster, ~11K PINs) [Currently Not working]{Colors.RESET}")
+                print(f"{Colors.GREEN}[2]{Colors.RESET} {Colors.WHITE}► Password Brute-Force Attack (Slower, uses wordlist){Colors.RESET}")
+                print(f"{Colors.GREEN}[3]{Colors.RESET} {Colors.WHITE}► Show WPS Info{Colors.RESET}")
+                print(f"{Colors.CYAN}{'─' * 68}{Colors.RESET}")
+                
+                attack_choice = input(f"{Colors.MAGENTA}[?] Select attack method{Colors.RESET} {Colors.CYAN}[1-3]{Colors.RESET}: ").strip()
+                
+                if attack_choice == '1':
+                    # WPS PIN Attack
+                    success, pin, password = wps_attack(iface, network, details['vendor'])
+                    if success:
+                        save_cracked_password(ssid_display, pin, details['signal'], details['akm'], 0, 1)
+                    return
+                elif attack_choice == '3':
+                    show_wps_info()
+                    return
+                # If choice is 2 or invalid, continue to password attack
 
             # Get passwords to test
             passwords = get_password_source()

@@ -9,6 +9,7 @@ from pathlib import Path
 from datetime import datetime
 from .utils import Colors, check_if_cracked
 from .vendors import get_vendor_from_mac
+from .wps_attack import get_wps_info
 
 
 def scan_networks_once(iface):
@@ -393,6 +394,12 @@ def get_network_details(network):
     details['security_rating'] = get_security_rating(details['akm'], details['cipher'])
     details['attack_difficulty'] = get_attack_difficulty(details['signal'], details['security_rating'])
     
+    # WPS information
+    wps_info = get_wps_info(network)
+    details['wps_enabled'] = wps_info['enabled']
+    details['wps_locked'] = wps_info['locked']
+    details['wps_version'] = wps_info['version']
+    
     return details
 
 
@@ -465,6 +472,13 @@ def display_networks(networks, detailed=False):
             print(f"    {Colors.WHITE}Stability:{Colors.RESET} {stability_color}{details['stability']}{Colors.RESET} │ "
                   f"{Colors.WHITE}Active:{Colors.RESET} {Colors.CYAN}{details['days_active']} days{Colors.RESET} │ "
                   f"{Colors.WHITE}Seen:{Colors.RESET} {Colors.CYAN}{details['seen_count']}x{Colors.RESET}")
+            
+            # WPS status
+            if details['wps_enabled']:
+                wps_status = f"{Colors.RED}LOCKED{Colors.RESET}" if details['wps_locked'] else f"{Colors.GREEN}ENABLED{Colors.RESET}"
+                print(f"    {Colors.WHITE}WPS:{Colors.RESET} {wps_status} │ "
+                      f"{Colors.WHITE}Version:{Colors.RESET} {Colors.CYAN}{details['wps_version']}{Colors.RESET} "
+                      f"{Colors.YELLOW}[⚡ WPS Attack Available]{Colors.RESET}")
             
             if cracked_info:
                 print(f"    {Colors.GREEN}[✓] Password:{Colors.RESET} {Colors.WHITE}{cracked_info['password']}{Colors.RESET} │ "
